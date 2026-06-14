@@ -1,7 +1,7 @@
 ---
 name: rifframe
 description: >-
-  Pull real, consistent website sections into a project instead of writing
+  Pulls real, consistent website sections into a project instead of writing
   markup by hand. Use when building or assembling a landing page or marketing
   site and you want ready-made sections (hero, pricing, testimonials, FAQ,
   features, contact, footer, 30+ types in total) as clean Tailwind v4 HTML.
@@ -46,18 +46,39 @@ catalog is a REST API at `https://rifframe.app/api/v1/sections`.
 - `compare_sections(ids)`: thumbnails of up to 4 candidates side by side, to
   pick visually instead of guessing from names.
 
+Every tool maps to a REST endpoint, so the catalog also works with zero setup
+(no MCP, plain HTTP):
+
+- search: `GET /api/v1/sections?q=...&type=...` (`?all=1` for the full list)
+- one section: `GET /api/v1/sections/{type}/{style}/{name}?items=N&anchors=true`
+  (add `?format=document` for a standalone HTML preview page)
+- tokens: `GET /api/v1/tokens` (`?format=css` for raw CSS)
+- compare: no REST endpoint; use the `thumbnail` URL returned on each search result
+
 ## Workflow
 
 1. Install the tokens once (`get_tokens`), override a few variables with the
    project's brand colors.
-2. Search by intent (`search_sections`). When several candidates fit, show the
-   human the top 2 or 3 previews and let them pick.
+2. Search by intent (`search_sections`). When several candidates fit, do not
+   guess: show the human the top 2 or 3 side by side (`compare_sections`, or the
+   `preview` / `thumbnail` URLs) and let them pick.
 3. Pull (`get_section`) and drop the markup in. Convert to JSX if needed; it is
    plain classes, no JS.
 4. Fill the copy. Each text slot lists its sample and a writing hint; with
    `anchors=true`, target `[data-slot="name"]` directly.
 5. For more or fewer items in a list, pass `items=N` when the main group is
    scalable, otherwise clone an occurrence (the `groups` field gives the rule).
+
+## Example
+
+Brief: "a yoga studio for busy parents."
+
+1. `get_tokens`, set `--color-primary` to the studio's green.
+2. `search_sections("calm hero with a class schedule")`, pull the best hit.
+3. `search_sections("pricing", type: "pricing")`, then `get_section(id, items=3)`.
+4. `search_sections("faq")`, pull it, and fill every slot from its sample + hint.
+
+Result: a hero, pricing and FAQ that already match each other and the brand.
 
 ## The one rule
 
