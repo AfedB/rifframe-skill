@@ -5,14 +5,14 @@ description: >-
   markup by hand. Use when building or assembling a landing page or marketing
   site and you want ready-made sections (hero, pricing, testimonials, FAQ,
   features, contact, footer, 30+ types in total) as clean Tailwind v4 HTML.
-  Sections come from Rifframe's catalog of 250+ blocks that share one set of
+  Sections come from Rifframe's catalog of 270+ blocks that share one set of
   design tokens, so anything you pull stays consistent and restyles to any brand
   by overriding a few CSS variables.
 ---
 
 # Rifframe
 
-A catalog of 250+ website sections served over MCP and a REST API. Each section
+A catalog of 270+ website sections served over MCP and a REST API. Each section
 is plain Tailwind v4 markup (no JS, no dependencies) and reads from one set of
 semantic design tokens, so any combination stays consistent and restyles to a
 brand by overriding the CSS variables once.

@@ -1,10 +1,10 @@
 # rifframe-skill
 
-Give your coding agent a design system. 250+ website sections over MCP, one token contract, clean Tailwind out.
+Give your coding agent a design system. 270+ website sections over MCP, one token contract, clean Tailwind out.
 
 ![Rifframe demo](assets/rifframe-demo.gif)
 
-[Rifframe](https://rifframe.app) is a catalog of 250+ website sections (hero,
+[Rifframe](https://rifframe.app) is a catalog of 270+ website sections (hero,
 pricing, testimonials, FAQ, features, contact, footer, 30+ types). They share one
 set of design tokens, so your agent can pull any combination and it stays
 consistent: neutral by default, restyled to any brand by overriding a few CSS
