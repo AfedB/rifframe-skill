@@ -4,7 +4,7 @@ description: >-
   Pull real, consistent website sections into a project instead of writing
   markup by hand. Use when building or assembling a landing page or marketing
   site and you want ready-made sections (hero, pricing, testimonials, FAQ,
-  features, contact, footer, 30 types in total) as clean Tailwind v4 HTML.
+  features, contact, footer, 30+ types in total) as clean Tailwind v4 HTML.
   Sections come from Rifframe's catalog of 250+ blocks that share one set of
   design tokens, so anything you pull stays consistent and restyles to any brand
   by overriding a few CSS variables.
