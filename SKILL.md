@@ -19,13 +19,16 @@ brand by overriding the CSS variables once.
 
 ## Connect
 
-```
-claude mcp add --transport http rifframe https://rifframe.app/api/mcp
-```
+MCP server (Streamable HTTP, no API key during the beta), one endpoint for any
+client: `https://rifframe.app/api/mcp`
 
-No API key during the beta. Works with any MCP client over Streamable HTTP
-(Claude Code, Cursor, Windsurf, custom agents). Plain HTTP also works: the same
-catalog is a REST API at `https://rifframe.app/api/v1/sections`.
+- Claude Code: `claude mcp add --transport http rifframe https://rifframe.app/api/mcp`
+- Codex (`~/.codex/config.toml`): `[mcp_servers.rifframe]` then `url = "https://rifframe.app/api/mcp"`
+- Cursor / VS Code / Windsurf / others: add the endpoint to the client's MCP
+  config (`mcpServers` or `servers` block).
+
+Plain HTTP also works: the same catalog is a REST API at
+`https://rifframe.app/api/v1/sections`.
 
 ## Tools
 

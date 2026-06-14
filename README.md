@@ -14,19 +14,47 @@ This repo is a skill that teaches your coding agent how to use Rifframe.
 
 ## Install
 
-Connect the MCP server (one command, no API key during the beta):
+The integration is an MCP server. One endpoint, any MCP client (Streamable
+HTTP, no API key during the beta):
+
+```
+https://rifframe.app/api/mcp
+```
+
+**Claude Code**
 
 ```
 claude mcp add --transport http rifframe https://rifframe.app/api/mcp
 ```
 
-Then drop [`SKILL.md`](./SKILL.md) into your agent's skills (for example
-`.claude/skills/rifframe/SKILL.md`) so it knows how to search, pull and fill
-sections.
+**Codex** — `~/.codex/config.toml`
 
-Works with any MCP client over Streamable HTTP (Claude Code, Cursor, Windsurf,
-custom agents). Plain HTTP also works: the same catalog is a REST API at
-`https://rifframe.app/api/v1/sections`.
+```toml
+[mcp_servers.rifframe]
+url = "https://rifframe.app/api/mcp"
+```
+
+**Cursor** — `.cursor/mcp.json` (same JSON for Windsurf, Cline and most clients)
+
+```json
+{ "mcpServers": { "rifframe": { "url": "https://rifframe.app/api/mcp" } } }
+```
+
+**VS Code** — `.vscode/mcp.json`
+
+```json
+{ "servers": { "rifframe": { "type": "http", "url": "https://rifframe.app/api/mcp" } } }
+```
+
+Any other MCP client: point it at the endpoint above. Plain HTTP also works —
+the same catalog is a REST API at `https://rifframe.app/api/v1/sections`.
+
+### Claude Code skill (optional)
+
+[`SKILL.md`](./SKILL.md) teaches Claude Code how to search, pull and fill
+sections. Drop it into `.claude/skills/rifframe/SKILL.md`. It is a Claude-only
+convenience: other clients just connect the MCP endpoint above and prompt the
+agent directly.
 
 ## Example
 
